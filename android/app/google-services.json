@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "766752193813",
+    "project_id": "front-mans",
+    "storage_bucket": "front-mans.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766752193813:android:2e197df1dd1fb45e91bd1c",
+        "android_client_info": {
+          "package_name": "com.example.front_mans_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ0Dw5W8ScPu9NvdwbE06gpAKx7oIJOUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
