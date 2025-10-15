@@ -2,20 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:front_mans_firebase/core/utils/firebase_result.dart';
 import 'package:front_mans_firebase/domain/entities/user_entity.dart';
+import 'package:front_mans_firebase/domain/usecases/delete_user_data_use_case.dart';
 import 'package:front_mans_firebase/domain/usecases/get_current_user_use_case.dart';
 import 'package:front_mans_firebase/domain/usecases/get_user_data_use_case.dart';
 import 'package:front_mans_firebase/domain/usecases/save_user_data_use_case.dart';
+import 'package:front_mans_firebase/domain/usecases/update_user_data_use_case.dart';
 import 'package:front_mans_firebase/presentation/cubit/user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
   final SaveUserDataUseCase _saveUserDataUseCase;
   final GetUserDataUserCase _getUserDataUserCase;
   final GetCurrentUserUseCase _currentUserUseCase;
+  final UpdateUserDataUseCase _updateUserDataUseCase;
+  final DeleteUserDataUseCase _deleteUserDataUseCase;
 
   UserCubit(
     this._saveUserDataUseCase,
     this._getUserDataUserCase,
     this._currentUserUseCase,
+    this._updateUserDataUseCase,
+    this._deleteUserDataUseCase,
   ) : super(UserInitial());
 
   void saveUserData(String name, String phone, String address) async {
@@ -41,6 +47,26 @@ class UserCubit extends Cubit<UserState> {
     final result = await _getUserDataUserCase();
     if (result is FirebaseSuccess) {
       emit(UserLoaded((result as FirebaseSuccess).data));
+    } else {
+      emit(UserError((result as FirebaseFailure).message));
+    }
+  }
+
+  void updateUserData(UserEntity user) async {
+    emit(UserLoading());
+    final result = await _updateUserDataUseCase(user);
+    if (result is FirebaseSuccess) {
+      emit(UserUpdated());
+    } else {
+      emit(UserError((result as FirebaseFailure).message));
+    }
+  }
+
+  void deleteUserData() async {
+    emit(UserLoading());
+    final result = await _deleteUserDataUseCase();
+    if (result is FirebaseSuccess) {
+      emit(UserDeleted());
     } else {
       emit(UserError((result as FirebaseFailure).message));
     }

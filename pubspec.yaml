@@ -2,7 +2,7 @@ name: front_mans_firebase
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -33,16 +33,15 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
-  firebase_core: ^4.2.0
-  firebase_auth: ^6.1.1
-  cloud_firestore: ^6.0.3
-  firebase_database: ^12.0.3
-  firebase_messaging: ^16.0.3
-  firebase_crashlytics: ^5.0.3
-  flutter_bloc: ^9.1.1
-  get_it: ^8.2.0
-
+  cupertino_icons:
+  firebase_core:
+  firebase_auth:
+  cloud_firestore:
+  firebase_database:
+  firebase_messaging:
+  firebase_crashlytics:
+  flutter_bloc:
+  get_it:
 
 dev_dependencies:
   flutter_test:
@@ -60,7 +59,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

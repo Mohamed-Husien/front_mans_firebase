@@ -35,7 +35,7 @@ void setupModule() {
     () => FirebaseStoreRepositoryImpl(sl()),
   );
   sl.registerFactory<SaveUserDataUseCase>(() => SaveUserDataUseCase(sl()));
-  sl.registerFactory<GetUserDataUserCase>(() =>GetUserDataUserCase(sl()));
+  sl.registerFactory<GetUserDataUserCase>(() => GetUserDataUserCase(sl()));
   sl.registerFactory<GetCurrentUserUseCase>(() => GetCurrentUserUseCase(sl()));
-  sl.registerFactory<UserCubit>(() => UserCubit(sl(), sl(), sl()));
+  sl.registerFactory<UserCubit>(() => UserCubit(sl(), sl(), sl(), sl(), sl()));
 }
